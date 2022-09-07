@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 
 const style = {
   table: {
@@ -15,10 +14,9 @@ const style = {
   form: {
     container: {
       padding: "20px",
-      border: "1px solid #F0F8FF",
-      borderRadius: "15px",
       width: "max-content",
       marginBottom: "40px",
+      backgroundColor: "white",
     },
     inputs: {
       marginBottom: "5px",
@@ -32,6 +30,12 @@ const style = {
       borderRadius: "5px",
     },
   },
+  mainContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
 };
 
 function PhoneBookForm({ addEntryToPhoneBook }) {
@@ -43,39 +47,43 @@ function PhoneBookForm({ addEntryToPhoneBook }) {
     e.preventDefault();
     addEntryToPhoneBook({ userFirstName, userLastName, userPhone });
   };
+
   return (
     <form style={style.form.container} onSubmit={handleSubmit}>
       <label>First name:</label>
       <br />
       <input
         style={style.form.inputs}
-        className="userFirstname"
+        className="userFirstname bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         name="userFirstname"
         type="text"
         value={userFirstName}
         onChange={(e) => setUserFirstName(e.target.value)}
+        required
       />
       <br />
       <label>Last name:</label>
       <br />
       <input
         style={style.form.inputs}
-        className="userLastname"
+        className="userLastname bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         name="userLastname"
         type="text"
         value={userLastName}
         onChange={(e) => setUserLastName(e.target.value)}
+        required
       />
       <br />
       <label>Phone:</label>
       <br />
       <input
         style={style.form.inputs}
-        className="userPhone"
+        className="userPhone bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         name="userPhone"
-        type="text"
+        type="number"
         value={userPhone}
         onChange={(e) => setUserPhone(e.target.value)}
+        required
       />
       <br />
       <input
@@ -103,9 +111,9 @@ function InformationTable(props) {
       <tbody style={{ marginTop: ".5em" }}>
         {entries.map((entry, key) => (
           <tr key={key}>
-            <td>{entry.userFirstName}</td>
-            <td>{entry.userLastName}</td>
-            <td>{entry.userPhone}</td>
+            <td style={style.tableCell}>{entry.userFirstName}</td>
+            <td style={style.tableCell}>{entry.userLastName}</td>
+            <td style={style.tableCell}>{entry.userPhone}</td>
           </tr>
         ))}
       </tbody>{" "}
@@ -121,7 +129,7 @@ function App(props) {
   };
 
   return (
-    <section>
+    <section className="flex flex-col m-20 p-5 bg-white">
       <PhoneBookForm addEntryToPhoneBook={addEntryToPhoneBook} />
       <InformationTable entries={entryPhoneBook} />
     </section>
