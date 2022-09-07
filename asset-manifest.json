@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/distillery-coding-challenge/static/css/main.e6c13ad2.css",
+    "main.js": "/distillery-coding-challenge/static/js/main.94ef3049.js",
+    "static/js/787.50fb7135.chunk.js": "/distillery-coding-challenge/static/js/787.50fb7135.chunk.js",
+    "index.html": "/distillery-coding-challenge/index.html",
+    "main.e6c13ad2.css.map": "/distillery-coding-challenge/static/css/main.e6c13ad2.css.map",
+    "main.94ef3049.js.map": "/distillery-coding-challenge/static/js/main.94ef3049.js.map",
+    "787.50fb7135.chunk.js.map": "/distillery-coding-challenge/static/js/787.50fb7135.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.94ef3049.js"
+  ]
+}
